@@ -1,0 +1,74 @@
+# Visual Studio cache files
+.vs/
+
+# Build directories
+Debug/
+Release/
+x64/
+x86/
+
+# Temporary files
+*.obj
+*.log
+*.tlog
+*.tmp
+*.pdb
+*.idb
+*.ipdb
+*.iobj
+
+# IntelliSense database files
+*.sdf
+*.opensdf
+*.VC.db
+
+# Precompiled header files
+*.pch
+
+# Intermediate files
+*.ilk
+
+# Project temporary files
+*.user
+*.unsuccessfulbuild
+*.suo
+*.sln.docstates
+
+# Build configuration files
+*.VC.VC.opendb
+*.VC.VC.db
+*.VC.VC.db-shm
+*.VC.VC.db-wal
+
+# Binary files
+*.exe
+*.dll
+*.lib
+*.obj
+*.ocx
+*.o
+*.so
+*.a
+*.lo
+*.la
+
+# Static analysis and profiling tools
+*.i
+*.d
+*.map
+*.exp
+
+# Additional ignored files
+*.log
+*.tlog
+*.lastbuildstate
+*.rsp
+
+# Crash dump files
+*.dmp
+
+# Temporary files
+*.tmp
+*.temp
+
+#
