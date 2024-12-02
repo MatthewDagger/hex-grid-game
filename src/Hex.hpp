@@ -18,6 +18,8 @@ struct _Hex {
 
     bool operator==(const _Hex& a) const;
     bool operator!=(const _Hex& a) const;
+    
+    _Hex operator=(const _Hex& a);
 
     _Hex operator+(const _Hex& a) const;
     _Hex operator-(const _Hex& a) const;

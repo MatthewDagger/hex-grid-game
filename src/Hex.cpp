@@ -19,6 +19,12 @@ bool _Hex<Number>::operator!=(const _Hex& a) const {
     return !(*this == a);
 }
 
+template<typename Number>
+_Hex<Number> _Hex<Number>::operator=(const _Hex& a)
+{
+    return _Hex(a.q, a.r, a.s);
+}
+
 template <typename Number>
 _Hex<Number> _Hex<Number>::operator+(const _Hex& a) const {
     return _Hex(q + a.q, r + a.r, s + a.s);

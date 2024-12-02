@@ -7,4 +7,5 @@ class Game{
     public:
     Game(TileMap& map);
     
+    void move_unit(Unit unit, Hex destination);
 };
