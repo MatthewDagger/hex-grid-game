@@ -1,17 +1,5 @@
 #include "Hex.hpp"
 
-// Holds the directional vector for hexes
-const std::vector<Hex> hex_directions = {
-    Hex(1, 0, -1), Hex(1, -1, 0), Hex(0, -1, 1),
-    Hex(-1, 0, 1), Hex(-1, 1, 0), Hex(0, 1, -1)
-};
-
-// Getter for directions
-Hex hex_direction(int direction) {
-    assert(0 <= direction && direction <= 5);
-    return hex_directions[direction];
-}
-
 // _Hex Implementation
 template <typename Number>
 _Hex<Number>::_Hex(Number q_, Number r_, Number s_) : v{q_, r_, s_} {
@@ -62,6 +50,18 @@ _Hex<Number> _Hex<Number>::get_neighbour(int direction) {
     return *this + hex_direction(direction);
 }
 
+template <typename Number>
+std::vector<_Hex<Number>> _Hex<Number>::hex_directions = {
+    _Hex(1, 0, -1), _Hex(1, -1, 0), _Hex(0, -1, 1),
+    _Hex(-1, 0, 1), _Hex(-1, 1, 0), _Hex(0, 1, -1)
+};
+
+template <typename Number>
+_Hex<Number> _Hex<Number>::hex_direction(int direction) {
+    assert(0 <= direction && direction <= 5);
+    return hex_directions[direction];
+}
+
 // Explicit instantiations for _Hex<int> and _Hex<double>
 template struct _Hex<int>;
 template struct _Hex<double>;
@@ -74,3 +74,4 @@ namespace std {
         return hq ^ (hr + 0x9e3779b9 + (hq << 6) + (hq >> 2));
     }
 }
+

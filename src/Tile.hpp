@@ -1,8 +1,13 @@
 #pragma once
 #include "Hex.hpp"
+#include "Unit.hpp"
+#include <memory>
+#include <set>
 
 struct Tile {
-    Hex location;
+    const Hex location;
+    std::set<std::shared_ptr<Unit>> units;
 
-    Tile(Hex location_);
+    Tile(const Hex location);
+    Tile(const Hex& location, const std::set<std::shared_ptr<Unit>> units);
 };

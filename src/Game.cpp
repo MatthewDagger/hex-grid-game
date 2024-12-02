@@ -1,3 +1,3 @@
 #include "Game.hpp"
 
-Game::Game(TileMap _map): map(_map) {}
+Game::Game(TileMap& map): map(map) {}

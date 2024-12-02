@@ -119,10 +119,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Hex.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Tile.cpp" />
+    <ClCompile Include="src\TileMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="CppProperties.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Game.hpp" />
+    <ClInclude Include="src\Hex.hpp" />
+    <ClInclude Include="src\Tile.hpp" />
+    <ClInclude Include="src\TileMap.hpp" />
+    <ClInclude Include="src\Unit.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

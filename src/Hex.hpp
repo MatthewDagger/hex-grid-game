@@ -28,16 +28,17 @@ struct _Hex {
     Number get_length() const;
     Number distance_to(const _Hex& a) const;
     _Hex get_neighbour(int direction);
+
+    static std::vector<_Hex> hex_directions;
+    static _Hex hex_direction(int direction);
 };
 
 typedef _Hex<int> Hex;
 typedef _Hex<double> FractionalHex;
 
-// Holds the directional vector for hexes
-extern const std::vector<Hex> hex_directions;
 
-// Getter for directions
-Hex hex_direction(int direction);
+
+
 
 // Hash function
 namespace std {

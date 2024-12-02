@@ -5,6 +5,6 @@ class Game{
     TileMap map;
 
     public:
-    Game(TileMap _map);
+    Game(TileMap& map);
     
 };
