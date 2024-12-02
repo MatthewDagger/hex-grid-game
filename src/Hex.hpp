@@ -3,6 +3,7 @@
 #include <cmath>
 #include <vector>
 #include <functional>
+#include <unordered_map>
 
 /// @brief Hextypes are generated to both types of number
 /// @tparam Number
@@ -38,13 +39,20 @@ struct _Hex {
 typedef _Hex<int> Hex;
 typedef _Hex<double> FractionalHex;
 
-
-
-
-
 // Hash function
 namespace std {
     template <> struct hash<Hex> {
         size_t operator()(const Hex& h) const;
     };
 }
+
+// For ordering hexes in queue
+struct CompareHexDistance {
+    Hex destination;
+    std::unordered_map<Hex, int> g;
+
+    CompareHexDistance(Hex& destination, std::unordered_map<Hex, int>& g);
+    bool operator()(Hex& h1, Hex& h2);
+};
+
+

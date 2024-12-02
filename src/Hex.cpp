@@ -81,3 +81,13 @@ namespace std {
     }
 }
 
+
+// Compare Distances
+CompareHexDistance::CompareHexDistance(Hex& destination, std::unordered_map<Hex, int>& g):
+    destination(destination), g(g)
+{
+}
+
+bool CompareHexDistance::operator()(Hex& h1, Hex& h2) {
+    return h1.distance_to(destination) + g.at(h1) < (h2.distance_to(destination) + g.at(h2));
+}
