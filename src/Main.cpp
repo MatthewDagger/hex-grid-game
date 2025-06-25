@@ -2,15 +2,16 @@
 #include <iostream>
 int main(){
     std::unordered_map<Hex, Tile> hex_map;
-    for (size_t i = 0; i < 5; i++)
-    {
-        hex_map.insert({ Hex(i,-i,0), Tile(Hex(i,-i,0)) });
-        hex_map.insert({ Hex(i,0,-i), Tile(Hex(i,0,-i)) });
-        hex_map.insert({ Hex(-i,0,i), Tile(Hex(-i,0,i)) });
-        hex_map.insert({ Hex(-i,i,0), Tile(Hex(-i,i,0)) });
-        hex_map.insert({ Hex(0,i,-i), Tile(Hex(0,i,-i)) });
-        hex_map.insert({ Hex(0,-i,i), Tile(Hex(0,-i,i)) });
-    };
+
+    // Generate a hexagonal map https://www.redblobgames.com/grids/hexagons/implementation.html#map-storage
+    const int size = 5;
+    for (int q = -size; q <= size; q++) {
+        int r1 = std::max(-size, -q - size);
+        int r2 = std::min(size, -q + size);
+        for (int r = r1; r <= r2; r++) {
+            hex_map.insert({ Hex(q, r, -q - r), Tile(Hex(q, r, -q - r)) });
+        }
+    }
 
     TileMap map = TileMap(hex_map, "Test Map");
     Game game = Game(map);

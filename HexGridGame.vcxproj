@@ -67,12 +67,14 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -120,6 +122,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\renderer\BasicRenderer.cpp" />
     <ClCompile Include="src\units\LampLighter.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Hex.cpp" />
@@ -133,12 +136,13 @@
     <None Include="CppProperties.json" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\units\LampLighter.hpp" />
-    <ClInclude Include="src\Game.hpp" />
-    <ClInclude Include="src\Hex.hpp" />
-    <ClInclude Include="src\Tile.hpp" />
-    <ClInclude Include="src\TileMap.hpp" />
-    <ClInclude Include="src\units\Unit.hpp" />
+    <ClInclude Include="include\BasicRenderer.hpp" />
+    <ClInclude Include="include\LampLighter.hpp" />
+    <ClInclude Include="include\Game.hpp" />
+    <ClInclude Include="include\Hex.hpp" />
+    <ClInclude Include="include\Tile.hpp" />
+    <ClInclude Include="include\TileMap.hpp" />
+    <ClInclude Include="include\Unit.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

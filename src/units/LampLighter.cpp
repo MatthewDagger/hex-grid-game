@@ -1,5 +1,5 @@
 //#include "LampLighter.hpp"
-//#include "../Hex.hpp"
+//#include "Hex.hpp"
 //
 //LampLighter::LampLighter() {
 //

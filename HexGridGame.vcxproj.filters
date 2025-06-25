@@ -36,28 +36,34 @@
     <ClCompile Include="src\units\Unit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\renderer\BasicRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
     <None Include="CppProperties.json" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Game.hpp">
+    <ClInclude Include="include\Game.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hex.hpp">
+    <ClInclude Include="include\Hex.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Tile.hpp">
+    <ClInclude Include="include\Tile.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\TileMap.hpp">
+    <ClInclude Include="include\TileMap.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\units\Unit.hpp">
+    <ClInclude Include="include\Unit.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\units\LampLighter.hpp">
+    <ClInclude Include="include\LampLighter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BasicRenderer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

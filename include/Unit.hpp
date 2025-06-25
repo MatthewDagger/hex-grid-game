@@ -1,5 +1,5 @@
 #pragma once
-#include "../Hex.hpp"
+#include "Hex.hpp"
 
 // Abstract class to represnt any unit on the board
 class Unit {
