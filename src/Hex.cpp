@@ -1,4 +1,6 @@
 #include "Hex.hpp"
+#include <iostream>
+
 
 // _Hex Implementation
 template <typename Number>
@@ -20,9 +22,13 @@ bool _Hex<Number>::operator!=(const _Hex& a) const {
 }
 
 template<typename Number>
-_Hex<Number> _Hex<Number>::operator=(const _Hex& a)
-{
-    return _Hex(a.q, a.r, a.s);
+_Hex<Number>& _Hex<Number>::operator=(const _Hex& a) {
+    if (this != &a) {
+        const_cast<Number*>(v)[0] = a.q;
+        const_cast<Number*>(v)[1] = a.r;
+        const_cast<Number*>(v)[2] = a.s;
+    }
+    return *this;
 }
 
 template <typename Number>
@@ -68,6 +74,11 @@ _Hex<Number> _Hex<Number>::hex_direction(int direction) {
     return hex_directions[direction];
 }
 
+template <typename Number>
+std::string _Hex<Number>::to_string() const{
+    return std::format("Q: {}, R: {}, S:{}",q,r,s);
+}
+
 // Explicit instantiations for _Hex<int> and _Hex<double>
 template struct _Hex<int>;
 template struct _Hex<double>;
@@ -81,13 +92,3 @@ namespace std {
     }
 }
 
-
-// Compare Distances
-CompareHexDistance::CompareHexDistance(Hex& destination, std::unordered_map<Hex, int>& g):
-    destination(destination), g(g)
-{
-}
-
-bool CompareHexDistance::operator()(Hex& h1, Hex& h2) {
-    return h1.distance_to(destination) + g.at(h1) < (h2.distance_to(destination) + g.at(h2));
-}

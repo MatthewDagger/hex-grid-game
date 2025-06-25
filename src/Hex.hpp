@@ -2,7 +2,9 @@
 #include <cassert>
 #include <cmath>
 #include <vector>
+#include <string>
 #include <functional>
+#include <format>
 #include <unordered_map>
 
 /// @brief Hextypes are generated to both types of number
@@ -20,7 +22,8 @@ struct _Hex {
     bool operator==(const _Hex& a) const;
     bool operator!=(const _Hex& a) const;
     
-    _Hex operator=(const _Hex& a);
+
+    _Hex& operator=(const _Hex& a);
 
     _Hex operator+(const _Hex& a) const;
     _Hex operator-(const _Hex& a) const;
@@ -34,6 +37,7 @@ struct _Hex {
 
     static std::vector<_Hex> hex_directions;
     static _Hex hex_direction(int direction);
+    std::string to_string() const;
 };
 
 typedef _Hex<int> Hex;
@@ -45,14 +49,4 @@ namespace std {
         size_t operator()(const Hex& h) const;
     };
 }
-
-// For ordering hexes in queue
-struct CompareHexDistance {
-    Hex destination;
-    std::unordered_map<Hex, int> g;
-
-    CompareHexDistance(Hex& destination, std::unordered_map<Hex, int>& g);
-    bool operator()(Hex& h1, Hex& h2);
-};
-
 

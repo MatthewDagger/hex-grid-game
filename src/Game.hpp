@@ -12,8 +12,8 @@ class Game{
     void step();
 
     // Unit Movement
-    void move_unit(Unit* unit, Hex& destination);
-    std::list<Hex> generate_path(Hex& origin, Hex& destination);
+    void move_unit(Unit* unit, const Hex& destination);
+    std::list<Hex> generate_path(const Hex& origin, const Hex& destination);
 };
 
 

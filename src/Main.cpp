@@ -15,14 +15,13 @@ int main(){
     TileMap map = TileMap(hex_map, "Test Map");
     Game game = Game(map);
 
+    std::list<Hex> path = game.generate_path(Hex(0, 2, -2), Hex(2, -2, 0));
 
-    std::list<Hex> path = game.generate_path(Hex(0, 1, -1), Hex(4, 0, -4));
 
-    for each(Hex hex in path)
+    for (Hex h: path)
     {
-        std::cout << hex.q << hex.r << hex.s << "\n";
+        std::cout << h.to_string() << "\n";
     }
-
 
     
 }

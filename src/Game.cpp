@@ -2,6 +2,7 @@
 #include <vector>
 #include <unordered_set>
 #include "Game.hpp"
+#include <iostream>
 
 Game::Game(TileMap& map): map(map) {}
 
@@ -10,19 +11,22 @@ void Game::step(){
 }
 
 
-void Game::move_unit(Unit* unit, Hex& destination) {
+void Game::move_unit(Unit* unit, const Hex& destination) {
 	std::list<Hex> path = generate_path(unit->get_location(), destination);
 
 }
 
 // Use A* algorithm to find the fastest path to the destination
-std::list<Hex> Game::generate_path(Hex& origin, Hex& destination) {
+std::list<Hex> Game::generate_path(const Hex& origin, const Hex& destination) {
 	std::unordered_map<Hex, int> travel_dists;
 	travel_dists.insert_or_assign( origin, 0 );
 
+	auto comp = [&](Hex& a, Hex& b) {
+		return (a.distance_to(destination) + travel_dists.at(a)) > (b.distance_to(destination) + travel_dists.at(b));
+	};
+
 	std::unordered_map<Hex, Hex> parents;
-	CompareHexDistance comparator = CompareHexDistance(destination, travel_dists);
-	std::priority_queue<Hex, std::vector<Hex>, CompareHexDistance> open_list(comparator);
+	std::priority_queue<Hex, std::vector<Hex>, decltype(comp)> open_list(comp);
 	std::unordered_set<Hex> closed_list;
 
 	// Initialise list
@@ -40,7 +44,7 @@ std::list<Hex> Game::generate_path(Hex& origin, Hex& destination) {
 				path.push_back(current);
 				current = parents.at(current);
 			}
-
+			 
 			return path;
 		}
 
@@ -50,7 +54,7 @@ std::list<Hex> Game::generate_path(Hex& origin, Hex& destination) {
 		// Explore Neighbours
 		for (int i = 0; i < 6; ++i) {
 			Hex neighbour = current.get_neighbour(i);
-
+			
 			// Check if neighbour is in map
 			if (!map.tiles.count(neighbour)) {
 				continue;
@@ -65,7 +69,6 @@ std::list<Hex> Game::generate_path(Hex& origin, Hex& destination) {
 			if (closed_list.count(neighbour)) {
 				continue;
 			}
-
 			int travelDist = travel_dists.at(current) + 1;
 			if (!(travel_dists.count(neighbour)) || travel_dists.at(neighbour) > travelDist) {
 				travel_dists.insert_or_assign(neighbour, travelDist);
