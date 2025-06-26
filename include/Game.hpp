@@ -2,11 +2,11 @@
 #include "TileMap.hpp"
 
 class Game{
+    public:
     TileMap map;
     std::list<Unit*> player_units;
     std::list<Unit*> npc_units;
 
-    public:
     Game(TileMap& map);
     
     void step();
