@@ -67,14 +67,16 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)include;C:\Users\f1071276\Downloads\raylib-5.5_win64_msvc16\raylib-5.5_win64_msvc16\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\f1071276\Downloads\raylib-5.5_win64_msvc16\raylib-5.5_win64_msvc16\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)include;C:\Users\f1071276\Downloads\raylib-5.5_win64_msvc16\raylib-5.5_win64_msvc16\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\f1071276\Downloads\raylib-5.5_win64_msvc16\raylib-5.5_win64_msvc16\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -95,6 +97,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>winmm.lib;gdi32.lib;opengl32.lib;raylib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -119,10 +122,13 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>winmm.lib;gdi32.lib;opengl32.lib;raylib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\HexUtils.hpp" />
     <ClCompile Include="src\renderer\BasicRenderer.cpp" />
+    <ClCompile Include="src\renderer\HexUtils.cpp" />
     <ClCompile Include="src\units\LampLighter.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Hex.cpp" />

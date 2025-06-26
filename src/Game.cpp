@@ -1,8 +1,7 @@
-#include <queue>
-#include <vector>
-#include <unordered_set>
 #include "Game.hpp"
-#include <iostream>
+#include <queue>
+#include <unordered_set>
+#include <vector>
 
 Game::Game(TileMap& map): map(map) {}
 
@@ -77,7 +76,6 @@ std::list<Hex> Game::generate_path(const Hex& origin, const Hex& destination) {
 			}
 
 		}
-
 
 	}
 

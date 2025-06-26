@@ -1,10 +1,12 @@
 #include "Game.hpp"
 #include <iostream>
-int main(){
+#include <BasicRenderer.hpp>
+
+// Util function for testing
+static TileMap generate_hexagonal_map(const int size) {
     std::unordered_map<Hex, Tile> hex_map;
 
     // Generate a hexagonal map https://www.redblobgames.com/grids/hexagons/implementation.html#map-storage
-    const int size = 5;
     for (int q = -size; q <= size; q++) {
         int r1 = std::max(-size, -q - size);
         int r2 = std::min(size, -q + size);
@@ -13,16 +15,18 @@ int main(){
         }
     }
 
-    TileMap map = TileMap(hex_map, "Test Map");
+    return TileMap(hex_map, "Test Map");
+
+}
+
+int main(){
+
+    TileMap map = generate_hexagonal_map(5);
     Game game = Game(map);
 
-    std::list<Hex> path = game.generate_path(Hex(0, 2, -2), Hex(2, -2, 0));
-
-
-    for (Hex h: path)
-    {
-        std::cout << h.to_string() << "\n";
-    }
+    BasicRenderer renderer = BasicRenderer(game);
+    renderer.render();
 
     
 }
+
